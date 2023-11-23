@@ -1,3 +1,4 @@
+
 #include "bee.hpp"
 #include "HUMania.hpp"
 
@@ -11,16 +12,28 @@
 void Bee::fly(){
     int i = glob_i;
 //    moverRect.x += 5;
+    static Uint32 t = SDL_GetTicks();
+    static bool pause = false;
     int random_number = rand() % 20;
-    if (random_number == 1) {
-        unit_list_pointer[i]->unit_data.moverRect.x += 5;
+    if (random_number != 1 && !pause) {
+        this->unit_data.moverRect.x += 5;
+    }
+    else
+    {
+        pause = true;
+        if (SDL_GetTicks() >= t+500) {
+            t = SDL_GetTicks();
+            pause = false;
+        } 
     }
     // Delete if it reaches at the end of the screen
-    if (unit_list_pointer[i]->unit_data.moverRect.x > 1000) {
-        unit_list_pointer.erase(unit_list_pointer.begin() + i);
-        birds_state.erase(birds_state.begin() + i);
-        bird_number.erase(bird_number.begin() + i);
-        butterfly_state.erase(butterfly_state.begin() + i);
+    if (this->unit_data.moverRect.x > 1000) {
+        del = true;
+        toBeDeleted = this;
+    }
+    else
+    {
+        del=false;
     }
 }
 

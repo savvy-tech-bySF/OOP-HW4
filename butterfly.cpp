@@ -9,22 +9,22 @@
 // fly() is overrided from the superclass
 void Butterfly::fly(){
     int i = glob_i;
-    unit_list_pointer[i]->unit_data.moverRect.x += 5;
-    if (unit_list_pointer[i]->unit_data.moverRect.y > 590) {
+    this->unit_data.moverRect.x += 5;
+    if (this->unit_data.moverRect.y > 590) {
         // unit_list[i].moverRect.y = 0;
         butterfly_state[i] = false;
-    } else if (unit_list_pointer[i]->unit_data.moverRect.y < 6) {
+    } else if (this->unit_data.moverRect.y < 6) {
         butterfly_state[i] = true;
     }
 
     if (butterfly_state[i]) {
-        unit_list_pointer[i]->unit_data.moverRect.y += 5;
+        this->unit_data.moverRect.y += 5;
     } else {
-        unit_list_pointer[i]->unit_data.moverRect.y -= 5;
+        this->unit_data.moverRect.y -= 5;
     }
 
-    if (unit_list_pointer[i]->unit_data.moverRect.x > 1000) {
-        unit_list_pointer[i]->unit_data.moverRect.x = 0;
+    if (this->unit_data.moverRect.x > 1000) {
+        this->unit_data.moverRect.x = 0;
     }
 //    moverRect.x += 5;
 //

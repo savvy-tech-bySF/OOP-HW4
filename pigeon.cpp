@@ -15,10 +15,10 @@
 void Pigeon::fly(){
     //
     int i = glob_i;
-    unit_list_pointer[i]->unit_data.moverRect.x += 5;
+    this->unit_data.moverRect.x += 5;
 
-    if (unit_list_pointer[i]->unit_data.moverRect.x > 1000) {
-        unit_list_pointer[i]->unit_data.moverRect.x = 0;
+    if (this->unit_data.moverRect.x > 1000) {
+        this->unit_data.moverRect.x = 0;
     }
 }
 

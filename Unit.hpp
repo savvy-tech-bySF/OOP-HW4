@@ -29,7 +29,7 @@ public:
 class Unit {
 public:
     Unit() = default;
-    virtual void draw(int num);
+    virtual void draw(int num, int x, int y);
 //    virtual void draw(UnitData unit_data_draw);
     virtual void fly() {};
     ~Unit() = default;
