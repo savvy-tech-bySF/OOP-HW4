@@ -11,10 +11,10 @@
 using namespace std;
 
 
-extern int glob_x;
-extern int glob_y;
+// extern int glob_x;
+// extern int glob_y;
 extern int glob_i;
-extern bool draw_now;
+// extern bool draw_now;
 
 extern vector<int> bird_number;
 extern vector<int> birds_state;
@@ -22,6 +22,7 @@ extern vector<bool> butterfly_state;
 extern list<Unit*> unit_list_pointer;
 extern bool del;
 extern Unit* toBeDeleted;
+extern int DelIndex;
 
 class HUMania{
 
@@ -34,14 +35,14 @@ class HUMania{
     
     void drawObjects();
     void createObject(int, int);
-    
+    void deleteObject(Unit*);
     // create destructor which deletes all dynamic objects
     ~HUMania() = default;
 protected:
 //    vector<UnitData> unit_list;
     Unit * unit;
     UnitData unit_data_humania{};
-
+    
     SDL_Rect pigeon_start = {7, 88, 160, 103};
 
     SDL_Rect butterfly_start = {256, 24, 175, 135};

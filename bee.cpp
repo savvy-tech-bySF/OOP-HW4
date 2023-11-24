@@ -15,6 +15,7 @@ void Bee::fly(){
     static Uint32 t = SDL_GetTicks();
     static bool pause = false;
     int random_number = rand() % 20;
+    // if (random_number >= 1 || random_number <= 19) {}
     if (random_number != 1 && !pause) {
         this->unit_data.moverRect.x += 5;
     }
